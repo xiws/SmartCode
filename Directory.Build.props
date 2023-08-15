@@ -4,16 +4,17 @@
 
   <PropertyGroup Label="Package">
     <Product>SmartCode</Product>
-    <Copyright>2019 SmartCode, Inc.</Copyright>
+    <Copyright>2023 SmartCode, Inc.</Copyright>
     <PackageId>$(AssemblyName)</PackageId>
-    <Authors>Ahoo Wang;ncc</Authors>
-    <MaintainerEmail>ahoowang@qq.com</MaintainerEmail>
+    
+    <Authors>xiw;</Authors>
+    <MaintainerEmail>zhongxiwang@live.com</MaintainerEmail>
     <LangVersion>latest</LangVersion>
-    <RepositoryUrl>https://github.com/Smart-Kit/SmartCode</RepositoryUrl>
+    <RepositoryUrl>https://github.com/xiws/SmartCode</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <RepositoryRoot>$(MSBuildThisFileDirectory)</RepositoryRoot>
-    <PackageIconUrl>https://raw.githubusercontent.com/Smart-Kit/SmartCode/master/doc/Logo.png</PackageIconUrl>
-    <PackageProjectUrl>https://github.com/Smart-Kit/SmartCode</PackageProjectUrl>
+    <PackageIconUrl>https://raw.githubusercontent.com/xiws/SmartCode/master/doc/Logo.png</PackageIconUrl>
+    <PackageProjectUrl>https://github.com/xiws/SmartCode</PackageProjectUrl>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <PackageTags>SmartCode SmartSql</PackageTags>

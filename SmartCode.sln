@@ -56,6 +56,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "doc", "doc", "{B3766EC2-4AD
 		doc\SmartCode.yml = doc\SmartCode.yml
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartCode.xiw", "src\SmartCode.xiw\SmartCode.xiw.csproj", "{CC29035A-84B1-43D3-8336-B2A32DEBE771}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -106,6 +108,10 @@ Global
 		{DADD6996-91C4-496D-AE97-D8EA5E33716A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DADD6996-91C4-496D-AE97-D8EA5E33716A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DADD6996-91C4-496D-AE97-D8EA5E33716A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC29035A-84B1-43D3-8336-B2A32DEBE771}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC29035A-84B1-43D3-8336-B2A32DEBE771}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC29035A-84B1-43D3-8336-B2A32DEBE771}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC29035A-84B1-43D3-8336-B2A32DEBE771}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
