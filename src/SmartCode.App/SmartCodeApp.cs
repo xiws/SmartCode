@@ -68,6 +68,11 @@ namespace SmartCode.App
             {
                 Services.AddSingleton<IProjectBuilder, ETLProjectBuilder>();
             }
+
+            if (Project.Mode == Project.ProjectMode.Uilt)
+            {
+                Services.AddSingleton<IProjectBuilder, ETLProjectBuilder>();
+            }
             else
             {
                 if (Project.DataSource.Parameters.ContainsKey("Query"))

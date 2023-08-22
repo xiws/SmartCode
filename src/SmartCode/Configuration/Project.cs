@@ -27,7 +27,8 @@ namespace SmartCode.Configuration
         public enum ProjectMode
         {
             GENERATOR,
-            ETL
+            ETL,
+            Uilt
         }
     }
 }
