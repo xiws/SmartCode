@@ -57,7 +57,7 @@ namespace SmartCode.Generator
                     Output = buildKV.Value.Output?.Copy(),
                 };
 
-                //执行自身任务
+                //???????????
                 await _pluginManager.Resolve<IBuildTask>(context.Build.Type).Build(context);
 
                 _logger.LogInformation($"-------- BuildTask:{buildKV.Key} End! ---------");
@@ -115,11 +115,11 @@ namespace SmartCode.Generator
             {
                 _logger.LogInformation($"-------- BuildTask:{p.context.BuildKey} Wait [{string.Join(",", p.context.DependOn?.Select(d => d.BuildKey)?.ToArray())}]---------");
             }
-            //等待依赖任务
+            //???????????
             p.context.CountDown.Wait();
 
             _logger.LogInformation($"-------- BuildTask:{p.context.BuildKey} Start! ---------");
-            //执行自身任务
+            //???????????
             await _pluginManager.Resolve<IBuildTask>(p.context.Build.Type).Build(p.context);
 
             foreach (var c in p.allContexts)

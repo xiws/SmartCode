@@ -52,6 +52,10 @@
           <Link>SmartCode-Spring-Boot.yml</Link>
           <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </None>
+        <None Include="..\..\doc\workflow.yml">
+            <Link>workflow.yml</Link>
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
         <None Include="..\..\doc\SmartCode.yml">
             <Link>SmartCode.yml</Link>
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
