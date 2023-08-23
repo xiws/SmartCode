@@ -10,6 +10,7 @@ using System.Reflection;
 using HandlebarsDotNet;
 using SmartCode.ETL;
 using SmartCode.Generator;
+using SmartCode.Spider;
 
 namespace SmartCode.App
 {
@@ -71,7 +72,7 @@ namespace SmartCode.App
 
             if (Project.Mode == Project.ProjectMode.Uilt)
             {
-                Services.AddSingleton<IProjectBuilder, ETLProjectBuilder>();
+                Services.AddSingleton<IProjectBuilder, SpiderProjectBuilder>();
             }
             else
             {

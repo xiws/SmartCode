@@ -1,3 +1,22 @@
 Module: SmartSql.Starter
-Author: Ahoo Wang
+Author: xiw
+Mode: Uilt
 
+# 构建任务
+Build:
+  
+  #  ClearDir:
+  #    Type: Clear
+  #    Parameters:
+  #      Dirs: '.'
+
+  MakeBuildDir:
+    Type: Process
+    Parameters:
+      FileName: powershell
+      Args: mkdir '{{Project.Parameters.BuildDir}}'
+  Copy:
+    Type: Process
+    Parameters:
+      FileName: powershell
+      Args:  cp '{{Project.ConfigPath}}' '{{Project.Parameters.BuildDir}}'
