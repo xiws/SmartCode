@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -10,6 +11,7 @@ using System.Reflection;
 using HandlebarsDotNet;
 using SmartCode.ETL;
 using SmartCode.Generator;
+using SmartCode.Spider;
 
 namespace SmartCode.App
 {
@@ -63,15 +65,17 @@ namespace SmartCode.App
             Services.AddSingleton<SmartCodeOptions>(SmartCodeOptions);
             Services.AddSingleton<Project>(Project);
             RegisterPlugins();
+            RegisterCommand(SmartCodeOptions.CommandDic);
+            
             Services.AddSingleton<IPluginManager, PluginManager>();
             if (Project.Mode == Project.ProjectMode.ETL)
             {
                 Services.AddSingleton<IProjectBuilder, ETLProjectBuilder>();
             }
 
-            if (Project.Mode == Project.ProjectMode.Uilt)
+            if (Project.Mode == Project.ProjectMode.Util)
             {
-                Services.AddSingleton<IProjectBuilder, ETLProjectBuilder>();
+                Services.AddSingleton<IProjectBuilder, SpiderProjectBuilder>();
             }
             else
             {
@@ -88,6 +92,21 @@ namespace SmartCode.App
             Logger = ServiceProvider.GetRequiredService<ILogger<SmartCodeApp>>();
         }
 
+        private void RegisterCommand(Dictionary<string,string> dic)
+        {
+            CommandLine cmd = new CommandLine();
+            if (dic.TryGetValue("ModelName", out string modelName))
+            {
+                cmd.ModelName = modelName;
+            }
+
+            if (dic.TryGetValue("ModelType", out string modelType))
+            {
+                cmd.ModelType = modelType;
+            }
+            Services.AddSingleton(cmd); 
+        }
+        
         private void RegisterPlugins()
         {
             foreach (var plugin in SmartCodeOptions.Plugins)

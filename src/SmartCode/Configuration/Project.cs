@@ -14,6 +14,12 @@ namespace SmartCode.Configuration
         public bool AllowParallel { get; set; } = false;
         public ProjectMode? Mode { get; set; }
         public DataSource DataSource { get; set; }
+        
+        /// <summary>
+        /// 代码文件相关信息
+        /// </summary>
+        public List<CodeFileInfo> CodeFileInfo { get; set; }
+        
         public TemplateEngine TemplateEngine { get; set; } = TemplateEngine.Default;
         public String Language { get; set; } = "CSharp";
         public Output Output { get; set; }
@@ -28,7 +34,7 @@ namespace SmartCode.Configuration
         {
             GENERATOR,
             ETL,
-            Uilt
+            Util
         }
     }
 }

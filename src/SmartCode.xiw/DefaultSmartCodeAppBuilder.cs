@@ -16,12 +16,18 @@ namespace SmartCode.xiw
 
         public SmartCodeApp Build(string configPath)
         {
+           return  Build(configPath, new Dictionary<string, string>());
+        }
+
+        public SmartCodeApp Build(string configPath, Dictionary<string, string> cmdDic)
+        {
             var appSettingsbuilder = new ConfigurationBuilder()
-                    .SetBasePath(AppDirectory)
-                    .AddJsonFile(APP_SETTINGS_PATH, false, true);
+                .SetBasePath(AppDirectory)
+                .AddJsonFile(APP_SETTINGS_PATH, false, true);
             var configuration = appSettingsbuilder.Build();
             var smartCodeOptions = configuration.GetSection(SMARTCODE_KEY).Get<SmartCodeOptions>();
             smartCodeOptions.ConfigPath = configPath;
+            smartCodeOptions.CommandDic = cmdDic;
             smartCodeOptions.Services.AddLogging((loggerBuilder) =>
             {
                 var loggingConfig = configuration.GetSection("Logging");

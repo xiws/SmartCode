@@ -23,10 +23,19 @@
     <None Update="HandlebarsTemplates\**">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Remove="CodeFile\**" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="RazorTemplates\Contributions\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="CodeFile\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="CodeFile\**" />
   </ItemGroup>
 
 </Project>

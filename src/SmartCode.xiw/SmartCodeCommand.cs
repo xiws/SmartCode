@@ -26,6 +26,12 @@ namespace SmartCode.xiw
         
         [Option("-ci|--culture-info", Description = "CultureInfo")]
         public String CultureInfo { get; set; }
+        
+        [Option("-mn |--model-name", Description = "生成的文件名称")]
+        public string ModelName { get; set; }
+        
+        [Option("-ft|--file-type",Description = "文件安装哪个类型进行生成")]
+        public string ModelType { get; set; }
 
         private async Task OnExecute()
         {
@@ -46,7 +52,12 @@ namespace SmartCode.xiw
                     : Prompt.GetString("Please enter the path to build configuration file:");
             }
 
-            SmartCodeApp app = new DefaultSmartCodeAppBuilder().Build(ConfigPath);
+            var dic = new Dictionary<string, string>()
+            {
+                {nameof(ModelName),ModelName},
+                {nameof(ModelType),ModelType}
+            };
+            SmartCodeApp app = new DefaultSmartCodeAppBuilder().Build(ConfigPath,dic);
             await app.Run();
         }
 

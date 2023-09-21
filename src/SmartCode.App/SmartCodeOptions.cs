@@ -13,5 +13,10 @@ namespace SmartCode.App
         public String ConfigPath { get; set; }
         public IServiceCollection Services { get; set; } = new ServiceCollection();
         public IEnumerable<PluginConfig> Plugins { get; set; }
+        
+        /// <summary>
+        /// 命令相关信息
+        /// </summary>
+        public Dictionary<string,string> CommandDic { get; set; }
     }
 }
