@@ -8,7 +8,7 @@ namespace SmartCode.App
     public class SmartCodeOptions
     {
         public string Name { get; } = "SmartCode";
-        public string Author { get; } = "Ahoo Wang";
+        public string Author { get; } = "xiw";
         public string Github { get; } = "https://github.com/Ahoo-Wang/SmartCode";
         public String ConfigPath { get; set; }
         public IServiceCollection Services { get; set; } = new ServiceCollection();
