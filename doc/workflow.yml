@@ -1,11 +1,36 @@
 Module: SmartSql.Starter
 Author: Ahoo Wang
 Mode: Util
+TemplateEngine:
+  Name: Razor
+  Root: CSharp
 CodeFileInfo:
   - Path:
       "{0}": "Erp.Amazon.Models\\StatisticalAnalysis\\ProfitRate"
       "{0}Repository": "Erp.Amazon.Repositories\\Implement\\StatisticalAnalysis\\ProfitRate"
       "I{0}Repository": "Erp.Amazon.Repositories\\Interface\\StatisticalAnalysis\\ProfitRate"
-    ProjectName: "amazon"
+    ProjectName: "rateModel"
     ProjectPath: "D:\\Project\\erpamazonworker"
-
+  - Path:
+      "{0}": "Erp.Amazon.ViewModels\\StatisticalAnalysis\\Profit"
+    ProjectName: "rateView"
+    ProjectPath: "D:\\Project\\erpamazonworker"
+    
+Build:
+  
+  CodeFileOutPut:
+    Type: CodeFileOutPut
+    Parameters:
+      Script:
+  
+  WriteTemplateCode:
+    Type: WriteTemplateTask
+    Parameters: 
+      TemplateName: "Repository.cs"
+      Target: "{0}Repository"
+  
+  WriteITemplateCode:
+    Type: WriteTemplateTask
+    Parameters:
+      TemplateName: "IRepository.cs"
+      Target: "I{0}Repository"

@@ -25,7 +25,7 @@ public class SpiderProjectBuilder:IProjectBuilder
     
     public Task Build()
     {
-        var  task= _pluginManager.Resolve<ICodeFileOutPutTask>(_project.DataSource.Name);
+        var  task= _pluginManager.Resolve<ICodeFileOutPutTask>();
         return task.Build(null);
     }
 }

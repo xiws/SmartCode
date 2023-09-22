@@ -1,0 +1,10 @@
+@using SmartCode
+@model BuildContext
+
+@{
+    TemplateModel view =Model.TemplateModel;
+}
+public interface @view.RepositoryName : IRepository< @view.ModelName , long>
+{
+    // 可以在此处添加自定义的仓储方法
+}

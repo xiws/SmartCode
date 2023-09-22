@@ -12,6 +12,7 @@ using HandlebarsDotNet;
 using SmartCode.ETL;
 using SmartCode.Generator;
 using SmartCode.Spider;
+using SmartCode.Utilities;
 
 namespace SmartCode.App
 {
@@ -35,18 +36,20 @@ namespace SmartCode.App
 
         private void BuildProject()
         {
-            var pathExtension = Path.GetExtension(ConfigPath).ToUpper();
+            var configPath = ConfigPath;
+            var pathExtension = Path.GetExtension(configPath).ToUpper();
+            if (!File.Exists(configPath)) configPath = AppPath.Relative(configPath);
             switch (pathExtension)
             {
                 case ".JSON":
                 {
-                    ConfigBuilder = new JsonBuilder(ConfigPath);
+                    ConfigBuilder = new JsonBuilder(configPath);
                     break;
                 }
 
                 case ".YML":
                 {
-                    ConfigBuilder = new YamlBuilder(ConfigPath);
+                    ConfigBuilder = new YamlBuilder(configPath);
                     break;
                 }
 
@@ -57,7 +60,7 @@ namespace SmartCode.App
             }
 
             Project = ConfigBuilder.Build();
-            Project.ConfigPath = ConfigPath;
+            Project.ConfigPath = configPath;
         }
 
         private void RegisterServices()

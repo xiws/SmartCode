@@ -1,0 +1,17 @@
+@using SmartCode
+@model BuildContext
+
+@{
+    TemplateModel view =Model.TemplateModel;
+}
+using Microsoft.Extensions.Logging;
+
+public class @view.RepositoryName : Repository<@view.TemplateModel, long>, I@view.RepositoryName
+{
+    ILogger< @view.RepositoryName > _logger;
+    public @view.RepositoryName (IDbContext dbContext, ILogger< @view.RepositoryName > logger) : base(dbContext, "AutoChooseDb")
+    {
+        // 可以在此处进行其他操作
+        _logger = logger;
+    }
+}

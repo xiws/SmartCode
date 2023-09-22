@@ -5,9 +5,14 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\src\SmartCode.TemplateEngine\SmartCode.TemplateEngine.csproj" />
       <ProjectReference Include="..\src\SmartCode\SmartCode.csproj" />
     </ItemGroup>
 
 
+
+    <ItemGroup>
+      <Folder Include="RazorTemplates\" />
+    </ItemGroup>
 
 </Project>

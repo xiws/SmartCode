@@ -26,6 +26,9 @@ namespace SmartCode.Generator.BuildTasks
 
         public override async Task Build(BuildContext context)
         {
+            
+            context.Result = await _pluginManager.Resolve<ITemplateEngine>(context.Build.TemplateEngine.Name).Render(context);
+
             var filterTables = FilterTable(context.GetDataSource<ITableSource>().Tables, context.BuildKey,
                 context.Build);
             context.SetCurrentAllTable(filterTables);
